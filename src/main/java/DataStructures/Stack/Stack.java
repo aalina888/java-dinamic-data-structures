@@ -32,11 +32,20 @@ public class Stack {
     }
 
     public void insert(City city) {
+        // Inserting at the top of the stack
         if (head == null) {
+
+            // If Stack was empty
+            // Assign head to new element
             head = new Node(city);
         } else {
+
+            // Previous element is head
+            // Assign head to a new element
             head = new Node(city, head);
         }
+
+        size++;
     }
 
     public Node search(String city) {
@@ -45,6 +54,7 @@ public class Stack {
         } else {
             Node iterator = head;
 
+            // Searching for element beginning with the head
             while(iterator != null) {
                 if (iterator.getData().getName().equals(city)) {
                     return iterator;
@@ -58,8 +68,11 @@ public class Stack {
     }
 
     public void delete() {
+        // Deleting the element from the top of the Stack
         if (head != null) {
             head = head.getPrevious();
         }
+
+        size--;
     }
 }
