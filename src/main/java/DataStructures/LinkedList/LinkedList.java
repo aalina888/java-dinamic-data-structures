@@ -49,7 +49,7 @@ public class LinkedList {
             int counter = 0;
 
             // Go to the element after which you wold like to insert a new one
-            while (counter < position) {
+            while (counter < position - 1) {
                 last = last.getNext();
                 counter++;
             }
