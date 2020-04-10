@@ -48,15 +48,15 @@ public class LinkedList {
             Node last = head;
             int counter = 0;
 
-            // Go to the element after which you wold like to insert a new one
+            // Go to the element after which you would like to insert a new one
             while (counter < position - 1) {
                 last = last.getNext();
                 counter++;
             }
 
             // To insert a new element
-            // Say to a new one that its next element wold be next for the last
-            // And to last that next element would be a new one
+            // Say to a new one that its next element will be next for the last
+            // And to last that next element will be a new one
             last.setNext(new Node(city, last.getNext()));
         }
 
@@ -92,7 +92,7 @@ public class LinkedList {
         if (head.getData().getName().equals(city)) {
 
             // And list has only one element
-            // Just assign head to null -> list would be empty
+            // Just assign head to null -> list will be empty
             if (head.getNext() == null) {
                 head = null;
             } else {
@@ -110,7 +110,7 @@ public class LinkedList {
                 // If element is the one we want to delete
                 if (next.getData().getName().equals(city)) {
 
-                    // For iterator next element would be the next one for next
+                    // For iterator next element will be the next one for next
                     iterator.setNext(next.getNext());
                     // And next is next for next
                     if (next.getNext() != null) {

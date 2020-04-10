@@ -44,7 +44,7 @@ public class Queue {
             }
 
             // Create new element
-            // It would be next for the last
+            // It will be next for the last
             last.setNext(new Node(city));
         }
 

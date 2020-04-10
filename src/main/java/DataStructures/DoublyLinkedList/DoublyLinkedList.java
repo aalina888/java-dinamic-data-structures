@@ -9,14 +9,26 @@ public class DoublyLinkedList {
 
     public void setSize() {
         Node iterator = head;
-        int count = 0;
+        int count1 = 0;
 
         while (iterator != null) {
-            count++;
+            count1++;
             iterator = iterator.getNext();
         }
 
-        size = count;
+        iterator = tail;
+        int count2 = 0;
+
+        while (iterator != null) {
+            count2++;
+            iterator = iterator.getPrevious();
+        }
+
+        if (count1 == count2) {
+            size = count1;
+        } else {
+            System.out.println("Error! List has holes!");
+        }
     }
 
     public int getSize() {
@@ -42,43 +54,53 @@ public class DoublyLinkedList {
     }
 
     public void insert(City city, int position) {
-        if (position < 0 || position > 50) {
+        if (position < 0 || position > getSize()) {
             System.out.println("Bad position!");
             return;
         }
 
         if (head == null) {
-            if (position == 0) {
-                head = new Node(city);
-                tail = new Node(city);
-            } else {
-                System.out.println("Bad position!");
-                return;
-            }
+
+            // Inserting first element in the list
+            head = new Node(city);
+            tail = new Node(city);
         } else {
             Node last = head;
             int counter = 0;
 
-            while (counter < position && last.getNext() != null) {
+            // Go to element after which you want to insert a new one
+            while (counter < position - 1) {
                 last = last.getNext();
                 counter++;
             }
 
+            // Last element will be previous for a new one
+            // And next element for last will be next for a new one
+            // New element will be next for last
             last.setNext(new Node(city, last, last.getNext()));
 
+            // If there are no elements after last
+            // New element becomes the tail of the list
             if (last.getNext().getNext() == null) {
                 tail = last.getNext();
             }
         }
+
+        // Change the size of the list
+        setSize();
     }
 
     public Node search(String city) {
+        // If list is empty return null
         if (head == null) {
             return null;
         } else {
             Node iterator = head;
 
+            // Go through the list to find the element
             while (iterator != null) {
+
+                // Return if found
                 if (iterator.getData().getName().equals(city)) {
                     return iterator;
                 }
@@ -95,14 +117,31 @@ public class DoublyLinkedList {
             return;
         }
 
+        // If head should be removed
         if (head.getData().getName().equals(city)) {
-            head = null;
+
+            // Change head to next element
+            head = head.getNext();
+
+            // If there was only one element in the list
+            // Assign tail to null
+            if (head == null) {
+                tail = null;
+            } else {
+
+                // Head doesn't have previous element
+                head.setPrevious(null);
+            }
         } else {
             Node iterator = head;
             Node next = head.getNext();
 
+            // Searching for an element
             while (next.getNext() != null) {
                 if (next.getData().getName().equals(city)) {
+
+                    // Set next for iterator to next for next
+                    // Next for next has previous equals to iterator
                     iterator.setNext(next.getNext());
                     next.getNext().setPrevious(iterator);
                 }
@@ -111,11 +150,10 @@ public class DoublyLinkedList {
                 next = next.getNext();
             }
 
-            if (next.getData().getName().equals(city)) {
-                iterator.setNext(null);
-                tail = iterator;
-            }
+            tail = next;
         }
+
+        setSize();
     }
 }
 

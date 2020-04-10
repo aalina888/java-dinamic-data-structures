@@ -82,7 +82,7 @@ public class DoublyLinkedListTest {
         // Inserting all cities in the Linked List
         int count = 0;
         for (City cityToInsert : citiesArray) {
-            doublyLinkedList.insert(cityToInsert, count);
+            doublyLinkedList.insert(cityToInsert, count + 1);
             count++;
         }
 
