@@ -9,24 +9,23 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class LinkedListTest {
-    LinkedList linkedList = new LinkedList();
+    private LinkedList linkedList;
     private City[] citiesArray;
 
     @Before
     public void setUp() {
+        linkedList = new LinkedList();
         citiesArray = JSONFileGenerator.createCitiesArray();
     }
 
     @Test
     public void setSizeTest() {
         linkedList.insert(new City("Chisinau", "Moldova", "MD2000", 28.86, 47.01), 0);
-        linkedList.setSize();
 
         // Checking if size is equal to 1
         assertEquals(1, linkedList.getSize());
 
         linkedList.delete("Chisinau");
-        linkedList.setSize();
 
         // Checking if list is empty
         assertEquals(0, linkedList.getSize());
@@ -37,7 +36,6 @@ public class LinkedListTest {
             linkedList.insert(cityToInsert, count);
             count++;
         }
-        linkedList.setSize();
 
         // Checking if size is equal to 50
         assertEquals(50, linkedList.getSize());
@@ -71,7 +69,6 @@ public class LinkedListTest {
         City chisinau = new City("Chisinau", "Moldova", "MD2000", 28.86, 47.01);
         // Inserting on the 0 position
         linkedList.insert(chisinau, 0);
-        linkedList.setSize();
 
         // Checking if size is equal to 1
         assertEquals(1, linkedList.getSize());
@@ -88,7 +85,6 @@ public class LinkedListTest {
             linkedList.insert(cityToInsert, count);
             count++;
         }
-        linkedList.setSize();
 
         // Now there are 51 elements in the list
         assertEquals(51, linkedList.getSize());
@@ -118,13 +114,11 @@ public class LinkedListTest {
     @Test
     public void deleteTest() {
         linkedList.insert(new City("Chisinau", "Moldova", "MD2000", 28.86, 47.01), 0);
-        linkedList.setSize();
 
         // Checking if size is equal to 1
         assertEquals(1, linkedList.getSize());
 
         linkedList.delete("Chisinau");
-        linkedList.setSize();
 
         // Checking if size is equal to 1
         assertEquals(0, linkedList.getSize());
@@ -138,28 +132,23 @@ public class LinkedListTest {
 
         // Deleting cities from the Linked List and checking list's size
         linkedList.delete("Canillo");
-        linkedList.setSize();
 
         assertEquals(49, linkedList.getSize());
 
         linkedList.delete("Wien");
-        linkedList.setSize();
 
         assertEquals(48, linkedList.getSize());
 
         linkedList.delete("Skopje");
-        linkedList.setSize();
 
         assertEquals(47, linkedList.getSize());
 
         // Deleting cities that are not present in the Linked List
         linkedList.delete("Moscow");
-        linkedList.setSize();
 
         assertEquals(47, linkedList.getSize());
 
         linkedList.delete("Tiraspol");
-        linkedList.setSize();
 
         assertEquals(47, linkedList.getSize());
     }

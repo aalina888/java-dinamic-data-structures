@@ -6,10 +6,6 @@ public class LinkedList {
     private Node head;
     private int size;
 
-    public int getSize() {
-        return size;
-    }
-
     public void setSize() {
         Node iterator = head;
         int count = 0;
@@ -20,6 +16,10 @@ public class LinkedList {
         }
 
         size = count;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     public void print() {
@@ -59,6 +59,9 @@ public class LinkedList {
             // And to last that next element would be a new one
             last.setNext(new Node(city, last.getNext()));
         }
+
+        // Recalculate size of the list
+        setSize();
     }
 
     public Node search(String city) {
@@ -119,5 +122,8 @@ public class LinkedList {
                 next = next.getNext();
             }
         }
+
+        // Recalculate size of the list
+        setSize();
     }
 }
