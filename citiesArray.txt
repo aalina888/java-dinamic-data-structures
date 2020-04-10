@@ -1,0 +1,50 @@
+City: Canillo	Country: Andorra	Postal code: AD100	Longitude: 1.67	Latitude: 42.58
+City: Washington	Country: United States	Postal code: 20020	Longitude: -76.97	Latitude: 38.86
+City: Pago Pago	Country: American Samoa	Postal code: 96799	Longitude: -170.00	Latitude: -14.33
+City: Wien	Country: Austria	Postal code: 1010	Longitude: 16.37	Latitude: 48.21
+City: Australian National University	Country: Australia	Postal code: 0200	Longitude: 0.00	Latitude: 0.00
+City: Atlanta	Country: United States	Postal code: 30301	Longitude: -84.47	Latitude: 33.84
+City: Bruxelles	Country: Belgium	Postal code: 1000	Longitude: 4.35	Latitude: 50.85
+City: Saint-Denis	Country: French Reunion	Postal code: 97400	Longitude: 55.47	Latitude: -20.87
+City: São Paulo	Country: Brazil	Postal code: 01000-000	Longitude: -46.64	Latitude: -23.63
+City: Chicago	Country: United States	Postal code: 60601	Longitude: -87.62	Latitude: 41.89
+City: New York City	Country: United States	Postal code: 10001	Longitude: -74.00	Latitude: 40.75
+City: Oxford	Country: United States	Postal code: 27565	Longitude: -78.61	Latitude: 36.33
+City: Dresden	Country: Germany	Postal code: 01067	Longitude: 51.05	Latitude: 14612.00
+City: Høje Taastrup	Country: Denmark	Postal code: 0800	Longitude: 12.28	Latitude: 55.65
+City: Los Angeles	Country: United States	Postal code: 90001	Longitude: -118.25	Latitude: 33.97
+City: Vitoria-Gasteiz	Country: Spain	Postal code: 01001	Longitude: -2.67	Latitude: 42.85
+City: Helsinki	Country: Finland	Postal code: 00002	Longitude: 24.93	Latitude: 60.18
+City: Tórshavn	Country: Faroe Islands	Postal code: 100	Longitude: -6.77	Latitude: 62.02
+City: Bourg-en-Bresse	Country: France	Postal code: 01000	Longitude: 5.23	Latitude: 46.21
+City: Dervişler Köyü	Country: Turkey	Postal code: 01000	Longitude: 37.50	Latitude: 36.97
+City: Cayenne	Country: French Guyana	Postal code: 97300	Longitude: -52.33	Latitude: 4.93
+City: St Peter Port	Country: Guernsey	Postal code: GY1	Longitude: -2.60	Latitude: 49.45
+City: Santa Claus/Julemanden	Country: Greenland	Postal code: 2412	Longitude: 0.00	Latitude: 0.00
+City: Basse-Terre	Country: Guadeloupe	Postal code: 97100	Longitude: -61.72	Latitude: 16.00
+City: Vaticano	Country: Vatican	Postal code: 00120	Longitude: 0.00	Latitude: 0.00
+City: Hagatna	Country: Guam	Postal code: 96910	Longitude: 144.79	Latitude: 13.44
+City: St Elie	Country: Guyana	Postal code: 97312	Longitude: 0.00	Latitude: 0.00
+City: Sljeme	Country: Croatia	Postal code: 10000	Longitude: 15.97	Latitude: 45.73
+City: Budapest	Country: Hungary	Postal code: 1011	Longitude: 19.05	Latitude: 47.50
+City: Douglas	Country: Isle of Man	Postal code: IM1	Longitude: -4.48	Latitude: 54.15
+City: Janpath	Country: India	Postal code: 110001	Longitude: 77.22	Latitude: 28.63
+City: Reykjavík - 1	Country: Iceland	Postal code: 101	Longitude: -21.92	Latitude: 64.14
+City: Casape	Country: Italy	Postal code: 00010	Longitude: 12.89	Latitude: 41.91
+City: St Helier	Country: Jersey	Postal code: JE1	Longitude: -2.13	Latitude: 49.20
+City: Chiyoda	Country: Japan	Postal code: 100-0001	Longitude: 139.76	Latitude: 35.68
+City: Nendeln	Country: Liechtenstein	Postal code: 9485	Longitude: 9.55	Latitude: 47.20
+City: Anaičių k.	Country: Lithuania	Postal code: 00001	Longitude: 21.07	Latitude: 55.92
+City: Luxembourg	Country: Luxembourg	Postal code: L-1009	Longitude: 6.13	Latitude: 49.61
+City: Les Moneghetti	Country: Monaco	Postal code: 98000	Longitude: 7.42	Latitude: 43.74
+City: Chisinau	Country: Moldavia	Postal code: MD-2000	Longitude: 28.86	Latitude: 47.01
+City: Majuro	Country: Marshall Islands	Postal code: 96960	Longitude: 166.41	Latitude: 11.14
+City: Skopje	Country: Macedonia	Postal code: 1000	Longitude: 21.43	Latitude: 42.00
+City: Saipan	Country: Northern Mariana Islands	Postal code: 96950	Longitude: 145.74	Latitude: 15.19
+City: Fort-de-France	Country: Martinique	Postal code: 97200	Longitude: -61.08	Latitude: 14.60
+City: San Angel	Country: Mexico	Postal code: 01000	Longitude: -99.23	Latitude: 19.37
+City: Kangar	Country: Malaysia	Postal code: 01000	Longitude: 100.21	Latitude: 6.43
+City: Amsterdam	Country: Netherlands	Postal code: 1000	Longitude: 4.89	Latitude: 52.37
+City: Oslo	Country: Norway	Postal code: 0001	Longitude: 10.75	Latitude: 59.91
+City: Woodhill	Country: New Zealand	Postal code: 0110	Longitude: 174.33	Latitude: -35.75
+City: Lisboa	Country: Portugal	Postal code: 1000-001	Longitude: -9.13	Latitude: 38.72
