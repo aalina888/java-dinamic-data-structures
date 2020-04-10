@@ -5,6 +5,23 @@ import Data.City;
 public class DoublyLinkedList {
     private Node head;
     private Node tail;
+    private int size;
+
+    public void setSize() {
+        Node iterator = head;
+        int count = 0;
+
+        while (iterator != null) {
+            count++;
+            iterator = iterator.getNext();
+        }
+
+        size = count;
+    }
+
+    public int getSize() {
+        return size;
+    }
 
     public void print() {
         Node iterator = head;
