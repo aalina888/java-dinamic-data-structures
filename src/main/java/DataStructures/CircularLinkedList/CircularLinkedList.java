@@ -2,13 +2,41 @@ package DataStructures.CircularLinkedList;
 
 import Data.City;
 
-// todo
 public class CircularLinkedList {
     private Node head;
+    private int size;
+
+    public void setSize() {
+        Node iterator;
+        int count = 0;
+
+        // If list is not empty
+        // Count head and go to next element
+        if (head != null) {
+            iterator = head.getNext();
+            count++;
+        } else {
+            size = 0;
+            return;
+        }
+
+        // While elements are not the same as head
+        // Count them
+        while (!iterator.getData().equals(head.getData())) {
+            count++;
+            iterator = iterator.getNext();
+        }
+
+        size = count;
+    }
+
+    public int getSize() {
+        return size;
+    }
 
     public void print() {
         if (head != null) {
-            System.out.println(head.getData());
+            System.out.print(head.getData());
             Node iterator = head.getNext();
 
             while (!iterator.getData().equals(head.getData())) {
@@ -18,55 +46,47 @@ public class CircularLinkedList {
         }
     }
 
-    public void printReverse() {
-        if (head != null) {
-            System.out.println(head.getData());
-            Node iterator = head.getNext();
-
-            while (!iterator.getData().equals(head.getData())) {
-                System.out.print(iterator.getData());
-                iterator = iterator.getPrevious();
-            }
-        }
-    }
-
     public void insert(City city, int position) {
-        if (position < 0 && position > 50) {
+        if (position < 0 || position > getSize()) {
             System.out.println("Bad position!");
             return;
         }
 
+        // If list is empty
         if (head == null) {
-            if (position == 0) {
-                head = new Node(city, new Node(city), new Node(city));
-            } else {
-                System.out.println("Bad position!");
-            }
+
+            // Assign new element to head
+            head = new Node(city, new Node(city));
         } else {
             Node last = head;
             int counter = 0;
 
-            while (counter < position && !last.getNext().getData().equals(head.getData())) {
+            while (counter < position - 1) {
                 last = last.getNext();
                 counter++;
             }
 
-            last.setNext(new Node(city, last, last.getNext()));
-
-            if (last.getNext().getNext() == null) {
-                head.setPrevious(last.getNext());
-                last.getNext().setNext(head);
+            // If there are more than 1 element in the list
+            if (!last.getNext().getData().equals(head.getData())) {
+                last.setNext(new Node(city, last.getNext()));
+            } else {
+                last.setNext(new Node(city, head));
             }
         }
+
+        setSize();
     }
 
     public Node search(String city) {
         if (head == null) {
             return null;
         } else {
-            Node iterator = head;
+            if (city.equals(head.getData().getName())) {
+                return head;
+            }
+            Node iterator = head.getNext();
 
-            while (!iterator.getNext().getData().equals(head.getData())) {
+            while (!iterator.getData().equals(head.getData())) {
                 if (iterator.getData().getName().equals(city)) {
                     return iterator;
                 }
@@ -78,39 +98,41 @@ public class CircularLinkedList {
         }
     }
 
-    // todo (situation with 1 element)
     public void delete(String city) {
         if (head == null) {
             return;
         }
 
+        // If head should be removed
         if (head.getData().getName().equals(city)) {
-            if (head.getData().equals(head.getNext().getData())) {
-                head.setPrevious(null);
-                head.setNext(null);
-                head = null;
+
+            // And there are at least 2 elements in the list
+            if (!head.getNext().getData().equals(head.getData())) {
+
+                // Go to the element before head
+                while (!head.getNext().getData().getName().equals(city)){
+                    head = head.getNext();
+                }
+
+                head.setNext(head.getNext().getNext());
             } else {
-                head = head.getNext();
-                head.setPrevious(null);
+                head = null;
             }
         } else {
             Node iterator = head;
             Node next = head.getNext();
 
-            while (!next.getNext().getData().equals(head.getData())) {
+            // Searching for an element
+            while (!next.getData().equals(head.getData())) {
                 if (next.getData().getName().equals(city)) {
                     iterator.setNext(next.getNext());
-                    next.getNext().setPrevious(iterator);
                 }
 
                 iterator = next;
                 next = next.getNext();
             }
-
-            if (next.getData().getName().equals(city)) {
-                iterator.setNext(null);
-                head.setPrevious(iterator);
-            }
         }
+
+        setSize();
     }
 }

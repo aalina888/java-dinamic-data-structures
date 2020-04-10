@@ -13,7 +13,6 @@ import lombok.Setter;
 public class Node {
     private City data;
 
-    private Node previous;
     private Node next;
 
     public Node(City city) {
