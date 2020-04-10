@@ -90,7 +90,7 @@ public class StackTest {
             stack.insert(cityToInsert);
         }
 
-        // Deleting cities from the Linked List and checking list's size
+        // Deleting cities from the Stack
         stack.delete();
 
         assertEquals(49, stack.getSize());
