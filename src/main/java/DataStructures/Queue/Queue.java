@@ -43,6 +43,9 @@ public class Queue {
 
             last.setNext(new Node(city));
         }
+
+        // Increment Size of the List
+        size++;
     }
 
     public Node search(String city) {
@@ -67,5 +70,8 @@ public class Queue {
         if (head != null) {
             head = head.getNext();
         }
+
+        // Decrement Size of the List
+        size--;
     }
 }
