@@ -2,50 +2,105 @@ package DataStructures;
 
 import Data.City;
 import Data.JSONFileGenerator;
+import DataStructures.Queue.Queue;
 import DataStructures.Stack.Stack;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class StackTest {
-    public static void main(String[] args) {
-        City[] citiesArray = JSONFileGenerator.createCitiesArray();
+    private Stack stack;
+    private City[] citiesArray;
 
-        Stack stack = new Stack();
+    @Before
+    public void setUp() {
+        stack = new Stack();
+        citiesArray = JSONFileGenerator.createCitiesArray();
+    }
 
-        System.out.println("Inserting a City in new Stack...");
+    @Test
+    public void printTest() {
         stack.insert(new City("Chisinau", "Moldova", "MD2000", 28.86, 47.01));
 
-        System.out.println("Checking the Result...");
+        // Checking if Stack from one element is printed
         stack.print();
 
-        System.out.println("Deleting the city...");
         stack.delete();
+
+        // Checking if nothing is printed
+        stack.print();
 
         System.out.println("Inserting All Cities in the Stack...");
         for (City cityToInsert : citiesArray) {
             stack.insert(cityToInsert);
         }
 
-        System.out.println("\nPrinting the Stack:");
+        // Checking if the Queue is printed
         stack.print();
+    }
 
-        System.out.println("Deleting First City...");
+    @Test
+    public void insertTest() {
+        stack.insert(new City("Chisinau", "Moldova", "MD2000", 28.86, 47.01));
+        stack.setSize();
+
+        assertEquals(1, stack.getSize());
+
+        // Inserting all cities in the Stack
+        for (City cityToInsert : citiesArray) {
+            stack.insert(cityToInsert);
+        }
+        assertEquals(51, stack.getSize());
+    }
+
+    @Test
+    public void searchTest() {
+        // Inserting all cities in the Stack
+        for (City cityToInsert : citiesArray) {
+            stack.insert(cityToInsert);
+        }
+
+        // Searching for cities from the Stack
+        assertNotNull(stack.search("Canillo"));
+        assertNotNull(stack.search("Wien"));
+        assertNotNull(stack.search("Skopje"));
+        assertNotNull(stack.search("Kangar"));
+        assertNotNull(stack.search("Lisboa"));
+
+        // Searching for cities that are not present in the Stack
+        assertNull(stack.search("Moscow"));
+        assertNull(stack.search("Tiraspol"));
+    }
+
+    @Test
+    public void deleteTest() {
+        stack.insert(new City("Chisinau", "Moldova", "MD2000", 28.86, 47.01));
+
+        // Checking if size is equal to 1
+        assertEquals(1, stack.getSize());
+
         stack.delete();
 
-        System.out.println("Checking the Result...");
-        stack.print();
+        // Checking if size is equal to 1
+        assertEquals(0, stack.getSize());
 
-        System.out.println("Searching for Canillo...");
-        System.out.println(stack.search("Canillo").getData());
+        // Inserting all cities in the Stack
+        for (City cityToInsert : citiesArray) {
+            stack.insert(cityToInsert);
+        }
 
-        System.out.println("Searching for Washington...");
-        System.out.println(stack.search("Washington").getData());
+        // Deleting cities from the Linked List and checking list's size
+        stack.delete();
 
-        System.out.println("Searching for Moscow...");
-        System.out.println(stack.search("Moscow"));
+        assertEquals(49, stack.getSize());
 
-        System.out.println("Searching for Woodhill...");
-        System.out.println(stack.search("Woodhill").getData());
+        stack.delete();
 
-        System.out.println("Searching for Lisboa...");
-        System.out.println(stack.search("Lisboa"));
+        assertEquals(48, stack.getSize());
+
+        stack.delete();
+
+        assertEquals(47, stack.getSize());
     }
 }

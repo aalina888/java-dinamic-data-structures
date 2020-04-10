@@ -4,6 +4,23 @@ import Data.City;
 
 public class Stack {
     private Node head;
+    private int size;
+
+    public void setSize() {
+        Node iterator = head;
+        int count = 0;
+
+        while (iterator != null) {
+            count++;
+            iterator = iterator.getPrevious();
+        }
+
+        size = count;
+    }
+
+    public int getSize() {
+        return size;
+    }
 
     public void print() {
         Node iterator = head;
