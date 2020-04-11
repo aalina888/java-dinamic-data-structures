@@ -110,8 +110,51 @@ public class BinaryTree {
         System.out.print(head.getData());
     }
 
-    public void search() {
+    public Node search(String city) {
+        // If tree is empty
+        if (head == null) {
 
+            return null;
+        } else {
+            Node iterator = head;
+
+            // Examine all elements from the tree
+            while (iterator != null) {
+
+                // If city to find is less
+                if (city.compareTo(iterator.getData().getName()) < 0) {
+
+                    // And there is less element
+                    if (iterator.getLess() != null) {
+
+                        // Go to the element
+                        iterator = iterator.getLess();
+                    } else {
+
+                        // There is no such element in the tree
+                        return null;
+                    }
+                } else if (city.equals(iterator.getData().getName())){
+
+                    // Element was found
+                    return iterator;
+                } else {
+
+                    // And there is more element
+                    if (iterator.getMore() != null) {
+
+                        // Go to the element
+                        iterator = iterator.getMore();
+                    } else {
+
+                        // There is no such element in the tree
+                        return null;
+                    }
+                }
+            }
+        }
+
+        return null;
     }
 
     public void delete() {

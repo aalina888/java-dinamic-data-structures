@@ -52,11 +52,24 @@ public class BinaryTreeTest {
         }
 
         binaryTree.printPostorder(binaryTree.getHead());
-
     }
 
     @Test
     public void searchTest() {
+        for (City cityToInsert : citiesArray) {
+            binaryTree.insert(cityToInsert);
+        }
+
+        // Searching for cities from the list
+        assertNotNull(binaryTree.search("Canillo"));
+        assertNotNull(binaryTree.search("Wien"));
+        assertNotNull(binaryTree.search("Skopje"));
+        assertNotNull(binaryTree.search("Kangar"));
+        assertNotNull(binaryTree.search("Lisboa"));
+
+        // Searching for cities that are not present in the list
+        assertNull(binaryTree.search("Moscow"));
+        assertNull(binaryTree.search("Tiraspol"));
     }
 
     @Test
