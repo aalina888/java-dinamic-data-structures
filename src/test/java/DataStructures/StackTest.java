@@ -19,6 +19,12 @@ public class StackTest {
         citiesArray = JSONFileGenerator.createCitiesArray();
     }
 
+    private void insert() {
+        for (City cityToInsert : citiesArray) {
+            stack.insert(cityToInsert);
+        }
+    }
+
     @Test
     public void printTest() {
         stack.insert(new City("Chisinau", "Moldova", "MD2000", 28.86, 47.01));
@@ -31,10 +37,8 @@ public class StackTest {
         // Checking if nothing is printed
         stack.print();
 
-        System.out.println("Inserting All Cities in the Stack...");
-        for (City cityToInsert : citiesArray) {
-            stack.insert(cityToInsert);
-        }
+        // Inserting All Cities in the Stack...
+        insert();
 
         // Checking if the Queue is printed
         stack.print();
@@ -48,18 +52,15 @@ public class StackTest {
         assertEquals(1, stack.getSize());
 
         // Inserting all cities in the Stack
-        for (City cityToInsert : citiesArray) {
-            stack.insert(cityToInsert);
-        }
+        insert();
+
         assertEquals(51, stack.getSize());
     }
 
     @Test
     public void searchTest() {
         // Inserting all cities in the Stack
-        for (City cityToInsert : citiesArray) {
-            stack.insert(cityToInsert);
-        }
+        insert();
 
         // Searching for cities from the Stack
         assertNotNull(stack.search("Canillo"));
@@ -86,21 +87,16 @@ public class StackTest {
         assertEquals(0, stack.getSize());
 
         // Inserting all cities in the Stack
-        for (City cityToInsert : citiesArray) {
-            stack.insert(cityToInsert);
-        }
+        insert();
 
         // Deleting cities from the Stack
         stack.delete();
-
         assertEquals(49, stack.getSize());
 
         stack.delete();
-
         assertEquals(48, stack.getSize());
 
         stack.delete();
-
         assertEquals(47, stack.getSize());
     }
 }

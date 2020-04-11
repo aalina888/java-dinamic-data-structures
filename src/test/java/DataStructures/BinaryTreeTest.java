@@ -18,47 +18,43 @@ public class BinaryTreeTest {
         citiesArray = JSONFileGenerator.createCitiesArray();
     }
 
-    @Test
-    public void insertTest() {
+    private void insert() {
         for (City cityToInsert : citiesArray) {
             binaryTree.insert(cityToInsert);
         }
+    }
+
+    @Test
+    public void insertTest() {
+        insert();
 
         assertEquals(50, binaryTree.getSize());
     }
 
     @Test
     public void printInorderTest() {
-        for (City cityToInsert : citiesArray) {
-            binaryTree.insert(cityToInsert);
-        }
+        insert();
 
         binaryTree.printInorder(binaryTree.getHead());
     }
 
     @Test
     public void printPreorderTest() {
-        for (City cityToInsert : citiesArray) {
-            binaryTree.insert(cityToInsert);
-        }
+        insert();
 
         binaryTree.printPreorder(binaryTree.getHead());
     }
 
     @Test
     public void printPostorderTest() {
-        for (City cityToInsert : citiesArray) {
-            binaryTree.insert(cityToInsert);
-        }
+        insert();
 
         binaryTree.printPostorder(binaryTree.getHead());
     }
 
     @Test
     public void searchTest() {
-        for (City cityToInsert : citiesArray) {
-            binaryTree.insert(cityToInsert);
-        }
+        insert();
 
         // Searching for cities from the list
         assertNotNull(binaryTree.search("Canillo"));
@@ -74,9 +70,7 @@ public class BinaryTreeTest {
 
     @Test
     public void deleteTest() {
-        for (City cityToInsert : citiesArray) {
-            binaryTree.insert(cityToInsert);
-        }
+        insert();
 
         assertEquals(50, binaryTree.getSize());
 

@@ -18,6 +18,12 @@ public class QueueTest {
         citiesArray = JSONFileGenerator.createCitiesArray();
     }
 
+    private void insert() {
+        for (City cityToInsert : citiesArray) {
+            queue.insert(cityToInsert);
+        }
+    }
+
     @Test
     public void printTest() {
         queue.insert(new City("Chisinau", "Moldova", "MD2000", 28.86, 47.01));
@@ -30,10 +36,8 @@ public class QueueTest {
         // Checking if nothing is printed
         queue.print();
 
-        System.out.println("Inserting All Cities in the Queue...");
-        for (City cityToInsert : citiesArray) {
-            queue.insert(cityToInsert);
-        }
+        // Inserting All Cities in the Queue...
+        insert();
 
         // Checking if the Queue is printed
         queue.print();
@@ -47,9 +51,8 @@ public class QueueTest {
         assertEquals(1, queue.getSize());
 
         // Inserting all cities in the Queue
-        for (City cityToInsert : citiesArray) {
-            queue.insert(cityToInsert);
-        }
+        insert();
+
         assertEquals(51, queue.getSize());
     }
 
@@ -85,21 +88,16 @@ public class QueueTest {
         assertEquals(0, queue.getSize());
 
         // Inserting all cities in the Queue
-        for (City cityToInsert : citiesArray) {
-            queue.insert(cityToInsert);
-        }
+        insert();
 
         // Deleting cities from the Queue
         queue.delete();
-
         assertEquals(49, queue.getSize());
 
         queue.delete();
-
         assertEquals(48, queue.getSize());
 
         queue.delete();
-
         assertEquals(47, queue.getSize());
     }
 }

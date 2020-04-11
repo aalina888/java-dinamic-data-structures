@@ -18,6 +18,15 @@ public class DoublyLinkedListTest {
         citiesArray = JSONFileGenerator.createCitiesArray();
     }
 
+    private void insert() {
+        int count = 0;
+
+        for (City cityToInsert : citiesArray) {
+            doublyLinkedList.insert(cityToInsert, count);
+            count++;
+        }
+    }
+
     @Test
     public void printTest() {
         doublyLinkedList.insert(new City("Chisinau", "Moldova", "MD2000", 28.86, 47.01), 0);
@@ -30,12 +39,8 @@ public class DoublyLinkedListTest {
         // Checking if nothing is printed
         doublyLinkedList.print();
 
-        System.out.println("Inserting All Cities in the list...");
-        int count = 0;
-        for (City cityToInsert : citiesArray) {
-            doublyLinkedList.insert(cityToInsert, count);
-            count++;
-        }
+        // Inserting All Cities in the list...
+        insert();
 
         // Checking if list is printed
         doublyLinkedList.print();
@@ -53,12 +58,8 @@ public class DoublyLinkedListTest {
         // Checking if nothing is printed
         doublyLinkedList.print();
 
-        System.out.println("Inserting All Cities in the list...");
-        int count = 0;
-        for (City cityToInsert : citiesArray) {
-            doublyLinkedList.insert(cityToInsert, count);
-            count++;
-        }
+        // Inserting All Cities in the list...
+        insert();
 
         // Checking if list is printed in reverse order
         doublyLinkedList.printReverse();
@@ -79,25 +80,20 @@ public class DoublyLinkedListTest {
         // Checking if size is still equal to 1
         assertEquals(1, doublyLinkedList.getSize());
 
-        // Inserting all cities in the Linked List
-        int count = 0;
-        for (City cityToInsert : citiesArray) {
-            doublyLinkedList.insert(cityToInsert, count + 1);
-            count++;
-        }
+        doublyLinkedList.delete("Chisinau");
+        assertEquals(0, doublyLinkedList.getSize());
+
+        // Inserting all cities in the list
+        insert();
 
         // Now there are 51 elements in the list
-        assertEquals(51, doublyLinkedList.getSize());
+        assertEquals(50, doublyLinkedList.getSize());
     }
 
     @Test
     public void searchTest() {
         // Inserting all cities in the list
-        int count = 0;
-        for (City cityToInsert : citiesArray) {
-            doublyLinkedList.insert(cityToInsert, count);
-            count++;
-        }
+        insert();
 
         // Searching for cities from the list
         assertNotNull(doublyLinkedList.search("Canillo"));
@@ -124,32 +120,23 @@ public class DoublyLinkedListTest {
         assertEquals(0, doublyLinkedList.getSize());
 
         // Inserting all cities in the list
-        int count = 0;
-        for (City cityToInsert : citiesArray) {
-            doublyLinkedList.insert(cityToInsert, count);
-            count++;
-        }
+        insert();
 
         // Deleting cities from the Linked List and checking list's size
         doublyLinkedList.delete("Canillo");
-
         assertEquals(49, doublyLinkedList.getSize());
 
         doublyLinkedList.delete("Wien");
-
         assertEquals(48, doublyLinkedList.getSize());
 
         doublyLinkedList.delete("Skopje");
-
         assertEquals(47, doublyLinkedList.getSize());
 
         // Deleting cities that are not present in the list
         doublyLinkedList.delete("Moscow");
-
         assertEquals(47, doublyLinkedList.getSize());
 
         doublyLinkedList.delete("Tiraspol");
-
         assertEquals(47, doublyLinkedList.getSize());
     }
 }

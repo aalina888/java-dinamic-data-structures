@@ -19,6 +19,15 @@ public class CircularLinkedListTest {
         citiesArray = JSONFileGenerator.createCitiesArray();
     }
 
+    private void insert() {
+        int count = 0;
+
+        for (City cityToInsert : citiesArray) {
+            circularLinkedList.insert(cityToInsert, count);
+            count++;
+        }
+    }
+
     @Test
     public void printTest() {
         circularLinkedList.insert(new City("Chisinau", "Moldova", "MD2000", 28.86, 47.01), 0);
@@ -31,12 +40,8 @@ public class CircularLinkedListTest {
         // Checking if nothing is printed
         circularLinkedList.print();
 
-        System.out.println("Inserting All Cities in the list...");
-        int count = 0;
-        for (City cityToInsert : citiesArray) {
-            circularLinkedList.insert(cityToInsert, count);
-            count++;
-        }
+        // Inserting All Cities in the list...
+        insert();
 
         // Checking if list is printed
         circularLinkedList.print();
@@ -51,11 +56,7 @@ public class CircularLinkedListTest {
         assertEquals(0, circularLinkedList.getSize());
 
         // Inserting all cities in the list
-        int count = 0;
-        for (City cityToInsert : citiesArray) {
-            circularLinkedList.insert(cityToInsert, count);
-            count++;
-        }
+        insert();
 
         // Now there are 51 elements in the list
         assertEquals(50, circularLinkedList.getSize());
@@ -64,11 +65,7 @@ public class CircularLinkedListTest {
     @Test
     public void searchTest() {
         // Inserting all cities in the list
-        int count = 0;
-        for (City cityToInsert : citiesArray) {
-            circularLinkedList.insert(cityToInsert, count);
-            count++;
-        }
+        insert();
 
         // Searching for cities from the list
         assertNotNull(circularLinkedList.search("Canillo"));
@@ -95,32 +92,23 @@ public class CircularLinkedListTest {
         assertEquals(0, circularLinkedList.getSize());
 
         // Inserting all cities in the list
-        int count = 0;
-        for (City cityToInsert : citiesArray) {
-            circularLinkedList.insert(cityToInsert, count);
-            count++;
-        }
+        insert();
 
         // Deleting cities from the list and checking list's size
         circularLinkedList.delete("Canillo");
-
         assertEquals(49, circularLinkedList.getSize());
 
         circularLinkedList.delete("Wien");
-
         assertEquals(48, circularLinkedList.getSize());
 
         circularLinkedList.delete("Skopje");
-
         assertEquals(47, circularLinkedList.getSize());
 
         // Deleting cities that are not present in the list
         circularLinkedList.delete("Moscow");
-
         assertEquals(47, circularLinkedList.getSize());
 
         circularLinkedList.delete("Tiraspol");
-
         assertEquals(47, circularLinkedList.getSize());
     }
 }

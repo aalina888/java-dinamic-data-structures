@@ -18,6 +18,15 @@ public class LinkedListTest {
         citiesArray = JSONFileGenerator.createCitiesArray();
     }
 
+    private void insert() {
+        int count = 0;
+
+        for (City cityToInsert : citiesArray) {
+            linkedList.insert(cityToInsert, count);
+            count++;
+        }
+    }
+
     @Test
     public void setSizeTest() {
         linkedList.insert(new City("Chisinau", "Moldova", "MD2000", 28.86, 47.01), 0);
@@ -30,12 +39,8 @@ public class LinkedListTest {
         // Checking if list is empty
         assertEquals(0, linkedList.getSize());
 
-        System.out.println("Inserting All Cities in the Linked List...");
-        int count = 0;
-        for (City cityToInsert : citiesArray) {
-            linkedList.insert(cityToInsert, count);
-            count++;
-        }
+        // Inserting All Cities in the Linked List
+        insert();
 
         // Checking if size is equal to 50
         assertEquals(50, linkedList.getSize());
@@ -53,12 +58,8 @@ public class LinkedListTest {
         // Checking if nothing is printed
         linkedList.print();
 
-        System.out.println("Inserting All Cities in the Linked List...");
-        int count = 0;
-        for (City cityToInsert : citiesArray) {
-            linkedList.insert(cityToInsert, count);
-            count++;
-        }
+        // Inserting All Cities in the Linked List
+        insert();
 
         // Checking if list is printed
         linkedList.print();
@@ -80,11 +81,7 @@ public class LinkedListTest {
         assertEquals(1, linkedList.getSize());
 
         // Inserting all cities in the Linked List
-        int count = 0;
-        for (City cityToInsert : citiesArray) {
-            linkedList.insert(cityToInsert, count);
-            count++;
-        }
+        insert();
 
         // Now there are 51 elements in the list
         assertEquals(51, linkedList.getSize());
@@ -93,11 +90,7 @@ public class LinkedListTest {
     @Test
     public void searchTest() {
         // Inserting all cities in the Linked List
-        int count = 0;
-        for (City cityToInsert : citiesArray) {
-            linkedList.insert(cityToInsert, count);
-            count++;
-        }
+        insert();
 
         // Searching for cities from the Linked List
         assertNotNull(linkedList.search("Canillo"));
@@ -124,32 +117,23 @@ public class LinkedListTest {
         assertEquals(0, linkedList.getSize());
 
         // Inserting all cities in the Linked List
-        int count = 0;
-        for (City cityToInsert : citiesArray) {
-            linkedList.insert(cityToInsert, count);
-            count++;
-        }
+        insert();
 
         // Deleting cities from the Linked List and checking list's size
         linkedList.delete("Canillo");
-
         assertEquals(49, linkedList.getSize());
 
         linkedList.delete("Wien");
-
         assertEquals(48, linkedList.getSize());
 
         linkedList.delete("Skopje");
-
         assertEquals(47, linkedList.getSize());
 
         // Deleting cities that are not present in the Linked List
         linkedList.delete("Moscow");
-
         assertEquals(47, linkedList.getSize());
 
         linkedList.delete("Tiraspol");
-
         assertEquals(47, linkedList.getSize());
     }
 }
