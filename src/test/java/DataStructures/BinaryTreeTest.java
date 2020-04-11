@@ -20,6 +20,11 @@ public class BinaryTreeTest {
 
     @Test
     public void insertTest() {
+        for (City cityToInsert : citiesArray) {
+            binaryTree.insert(cityToInsert);
+        }
+
+        assertEquals(50, binaryTree.getSize());
     }
 
     @Test
@@ -33,10 +38,21 @@ public class BinaryTreeTest {
 
     @Test
     public void printPreorderTest() {
+        for (City cityToInsert : citiesArray) {
+            binaryTree.insert(cityToInsert);
+        }
+
+        binaryTree.printPreorder();
     }
 
     @Test
     public void printPostorderTest() {
+        for (City cityToInsert : citiesArray) {
+            binaryTree.insert(cityToInsert);
+        }
+
+        binaryTree.printPostorder();
+
     }
 
     @Test
