@@ -134,7 +134,7 @@ public class BinaryTree {
                         // There is no such element in the tree
                         return null;
                     }
-                } else if (city.equals(iterator.getData().getName())){
+                } else if (city.equals(iterator.getData().getName())) {
 
                     // Element was found
                     return iterator;
@@ -157,7 +157,55 @@ public class BinaryTree {
         return null;
     }
 
-    public void delete() {
+    public Node delete(Node root, String city) {
+        // If tree is empty
+        if (root == null) {
+            return null;
+        } else if (city.compareTo(root.getData().getName()) < 0) {
 
+            // Search in left subtree (less elements)
+            root.setLess(delete(root.getLess(), city));
+        } else if (city.compareTo(root.getData().getName()) > 0) {
+
+            // Search in right subtree (more elements)
+            root.setMore(delete(root.getMore(), city));
+        } else {
+            // If element has no children
+            if (root.getLess() == null && root.getMore() == null) {
+
+                // Just assign the element to null
+                // Ang increment the size of the tree
+                root = null;
+                size--;
+            }
+            // One child
+            // Assign element to its child
+            else if (root.getLess() == null) {
+                root = root.getMore();
+                size--;
+            } else if (root.getMore() == null) {
+                root = root.getLess();
+                size--;
+            }
+            // Two children
+            else {
+                // Assign root to min element
+                root.setData(findMin(root.getMore()).getData());
+                // Delete min element
+                root.setMore(delete(root.getMore(), findMin(root.getMore()).getData().getName()));
+            }
+
+
+        }
+        return root;
+    }
+
+    private Node findMin(Node root) {
+        // Go to less element while it's possible
+        while (root.getLess() != null) {
+            root = root.getLess();
+        }
+
+        return root;
     }
 }

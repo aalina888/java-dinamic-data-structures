@@ -74,5 +74,27 @@ public class BinaryTreeTest {
 
     @Test
     public void deleteTest() {
+        for (City cityToInsert : citiesArray) {
+            binaryTree.insert(cityToInsert);
+        }
+
+        assertEquals(50, binaryTree.getSize());
+
+        // Deleting cities from the tree
+        binaryTree.delete(binaryTree.getHead(), "Canillo");
+        assertEquals(49, binaryTree.getSize());
+
+        binaryTree.delete(binaryTree.getHead(), "Skopje");
+        assertEquals(48, binaryTree.getSize());
+
+        binaryTree.delete(binaryTree.getHead(), "Lisboa");
+        assertEquals(47, binaryTree.getSize());
+
+        // Deleting cities that doesn't exist in the tree
+        binaryTree.delete(binaryTree.getHead(), "Moscow");
+        assertEquals(47, binaryTree.getSize());
+
+        binaryTree.delete(binaryTree.getHead(), "Tiraspol");
+        assertEquals(47, binaryTree.getSize());
     }
 }
