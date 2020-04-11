@@ -6,6 +6,10 @@ public class BinaryTree {
     private Node head;
     private int size;
 
+    public Node getHead() {
+        return head;
+    }
+
     public int getSize() {
         return size;
     }
@@ -18,36 +22,37 @@ public class BinaryTree {
             head = new Node(city);
             size++;
         } else {
+            Node iterator = head;
 
             // Examine all elements from the tree
-            while (head != null) {
+            while (iterator != null) {
 
                 // If city to insert is less
-                if (city.compareTo(head.getData()) < 0) {
+                if (city.compareTo(iterator.getData()) < 0) {
 
                     // And there is less element
-                    if (head.getLess() != null) {
+                    if (iterator.getLess() != null) {
 
                         // Go to the element
-                        head = head.getLess();
+                        iterator = iterator.getLess();
                     } else {
 
                         // Insert new element
-                        head.setLess(new Node(city));
+                        iterator.setLess(new Node(city));
                         size++;
                         return;
                     }
                 } else {
 
                     // If there is more element
-                    if (head.getMore() != null) {
+                    if (iterator.getMore() != null) {
 
                         // Go to the element
-                        head = head.getMore();
+                        iterator = iterator.getMore();
                     } else {
 
                         // Insert new element
-                        head.setMore(new Node(city));
+                        iterator.setMore(new Node(city));
                         size++;
                         return;
                     }
@@ -56,16 +61,53 @@ public class BinaryTree {
         }
     }
 
-    public void printInorder() {
+    public void printInorder(Node head) {
+        // Stop when there are no elements in the tree
+        if (head == null) {
+            return;
+        }
 
+        // Go to left subtree
+        printInorder(head.getLess());
+
+        // Print root
+        System.out.print(head.getData());
+
+        // Go to right subtree
+        printInorder(head.getMore());
     }
 
     public void printPreorder() {
+        // Stop when there are no elements in the tree
+        if (head == null) {
+            return;
+        }
+
+        // Print root
+        System.out.print(head.getData());
+
+        // Go to left subtree
+        printInorder(head.getLess());
+
+        // Go to right subtree
+        printInorder(head.getMore());
 
     }
 
     public void printPostorder() {
+        // Stop when there are no elements in the tree
+        if (head == null) {
+            return;
+        }
 
+        // Go to left subtree
+        printInorder(head.getLess());
+
+        // Go to right subtree
+        printInorder(head.getMore());
+
+        // Print root
+        System.out.print(head.getData());
     }
 
     public void search() {

@@ -33,7 +33,7 @@ public class BinaryTreeTest {
             binaryTree.insert(cityToInsert);
         }
 
-        binaryTree.printInorder();
+        binaryTree.printInorder(binaryTree.getHead());
     }
 
     @Test
