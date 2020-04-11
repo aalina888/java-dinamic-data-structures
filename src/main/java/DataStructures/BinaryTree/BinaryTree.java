@@ -194,9 +194,8 @@ public class BinaryTree {
                 // Delete min element
                 root.setMore(delete(root.getMore(), findMin(root.getMore()).getData().getName()));
             }
-
-
         }
+
         return root;
     }
 
