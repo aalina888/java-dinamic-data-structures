@@ -42,7 +42,7 @@ public class BinaryTreeTest {
             binaryTree.insert(cityToInsert);
         }
 
-        binaryTree.printPreorder();
+        binaryTree.printPreorder(binaryTree.getHead());
     }
 
     @Test
@@ -51,7 +51,7 @@ public class BinaryTreeTest {
             binaryTree.insert(cityToInsert);
         }
 
-        binaryTree.printPostorder();
+        binaryTree.printPostorder(binaryTree.getHead());
 
     }
 

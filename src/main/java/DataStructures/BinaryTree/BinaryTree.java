@@ -77,7 +77,7 @@ public class BinaryTree {
         printInorder(head.getMore());
     }
 
-    public void printPreorder() {
+    public void printPreorder(Node head) {
         // Stop when there are no elements in the tree
         if (head == null) {
             return;
@@ -87,24 +87,24 @@ public class BinaryTree {
         System.out.print(head.getData());
 
         // Go to left subtree
-        printInorder(head.getLess());
+        printPreorder(head.getLess());
 
         // Go to right subtree
-        printInorder(head.getMore());
+        printPreorder(head.getMore());
 
     }
 
-    public void printPostorder() {
+    public void printPostorder(Node head) {
         // Stop when there are no elements in the tree
         if (head == null) {
             return;
         }
 
         // Go to left subtree
-        printInorder(head.getLess());
+        printPostorder(head.getLess());
 
         // Go to right subtree
-        printInorder(head.getMore());
+        printPostorder(head.getMore());
 
         // Print root
         System.out.print(head.getData());
